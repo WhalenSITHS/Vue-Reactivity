@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Vue Pizza Reactivity</h1>
     <ul class="toppings-list">
-      <li class="topping" v-for="topping in possibleToppings" :key="topping">
+      <li class="topping" v-for="(topping,position) in possibleToppings" :key="position" @click="addTopping(event)">
         {{ topping.item }}
       </li>
     </ul>
@@ -48,7 +48,9 @@ export default {
     };
   },
   methods: {
-    addTopping: function () {},
+    addTopping: function (event) {
+      console.log(event.target);
+    },
   },
 };
 </script>
